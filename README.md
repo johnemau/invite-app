@@ -1,6 +1,7 @@
 # invite-app
 
 A collection of front-end coffee script and erb templates showcasing work done for [igniite.com](http://igniite.com).
+The project used angularjs 1.3 and a rails backend.
 
 ## Example angular controller for the [user homepage](invite-app/homePage/homePageCtrl.js.coffee)
 fetching data from RESTful web service and placing on the scope
