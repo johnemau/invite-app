@@ -1,0 +1,16 @@
+<ul class="upcoming-events container-fluid">
+    <li class="row" data-ng-repeat="event in events | orderBy:'-date'">
+        <span class="col-xs-3">
+            {{event.date | date:'short'}}
+        </span>
+        <a class="col-xs-5" href="/events/{{event.eventId}}">
+            <span>{{event.name}}</span>
+        </a>
+        <div class="col-xs-4">
+            <button class="btn-xs ig-invite-btn"
+                    data-ng-if="event.invite"
+                    data-ig-invite-toggle
+                    data-invite="event.invite"></button>
+        </div>
+     </li>
+</ul>

@@ -1,0 +1,22 @@
+<div class="panel panel-default invitation-list">
+    <div class="panel-heading">My Events</div>
+    <ul class="list-group invitation-list-group">
+        <li class="list-group-item invite-item empty-list-item ig-fade"
+            data-ng-class="{'ig-in': noAttendingInvites()}">No events :(</li>
+        <li class="list-group-item ig-invite"
+            data-ng-repeat="invite in eventInvites | filter:isAttending | orderBy:'-date'">
+            <img class="ig-invite-image pull-left"
+                 data-ng-src="http://fakeimg.pl/100x68/{{invite.color}}/?text={{invite.tags[0]}}&font=lobster" />
+            <button data-ng-click="removeInvite(invite)"
+                    class="invite-remove-button btn btn-default btn-xs pull-right" >
+                <span class="remove-icon glyphicon glyphicon-minus"></span>Remove</button>
+            <h4 class="list-group-item-heading">
+                <a href="events/{{invite.eventId}}">{{invite.eventName}}</a>
+            </h4>
+            <p class="list-group-item-text">
+                <a href="/places/{{invite.placeId}}">{{invite.placeName}}</a>
+                <br/>{{invite.date | date:'short'}}
+            </p>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+#= require underscore
+#= depend_on_asset "invitations/placeEventListDirective/templates/place-event-list.html"
+
+placeEventListDirectiveFactory = (constants) ->
+  listCrtl = ($scope) ->
+  restrict: 'E'
+  scope:
+    events: '='
+  controller: ['$scope', listCrtl]
+  # TODO: Inject template url
+  templateUrl: '<%= asset_path('invitations/placeEventListDirective/templates/place-event-list.html') %>'
+
+# TODO: Find a better way to export dependencies
+window.igniite.placeEventListDirectiveFactory = placeEventListDirectiveFactory

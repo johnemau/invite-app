@@ -1,0 +1,1 @@
+//= require placePage/placePageModule/placePageModule

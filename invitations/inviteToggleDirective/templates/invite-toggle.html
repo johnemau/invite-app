@@ -1,0 +1,8 @@
+<button type="button"
+        class="invite-btn btn"
+        data-ng-class="{
+            'btn-success': isAttending(),
+            'btn-default': !isAttending()}"
+        data-ng-click="toggleStatus()"><span
+            class="glyphicon glyphicon-ok"
+            data-ng-show="isAttending()"></span>{{buttonText}}</button>

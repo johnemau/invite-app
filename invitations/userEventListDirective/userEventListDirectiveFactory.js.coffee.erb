@@ -1,0 +1,23 @@
+#= require underscore
+#= depend_on_asset "invitations/userEventListDirective/templates/user-event-list.html"
+
+userEventListDirectiveFactory = (constants) ->
+  listCrtl = ($scope) ->
+    $scope.isAttending = (invite) ->
+        invite.status is constants.ATTENDING
+
+    $scope.removeInvite = (invite) ->
+        invite.status = constants.NOT_ATTENDING
+        invite.saveStatus()
+
+    $scope.noAttendingInvites = ->
+        _.every @eventInvites, (invite) -> invite.status is constants.NOT_ATTENDING
+  restrict: 'E'
+  scope:
+    eventInvites: '='
+  controller: ['$scope', listCrtl]
+  # TODO: Inject template url
+  templateUrl: '<%= asset_path('invitations/userEventListDirective/templates/user-event-list.html') %>'
+
+# TODO: Find a better way to export dependencies
+window.igniite.userEventListDirectiveFactory = userEventListDirectiveFactory
